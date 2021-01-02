@@ -11,7 +11,6 @@ public class BuildingSelection : MonoBehaviour
 
     private Button _button;
 
-
     public BuildingType BuildingType
     {
         set

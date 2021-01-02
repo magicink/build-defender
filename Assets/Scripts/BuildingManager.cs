@@ -34,15 +34,7 @@ public class BuildingManager : MonoBehaviour
         var buildingPrefab = _currentBuilding.prefab;
         if (buildingPrefab)
         {
-            Instantiate(buildingPrefab, GetScreenPointToWorld(), Quaternion.identity);
+            Instantiate(buildingPrefab, Utils.GetMousePosition(), Quaternion.identity);
         }
-
-    }
-
-    private Vector3 GetScreenPointToWorld()
-    {
-        var mousePosition = _cameraMain.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0.0f;
-        return mousePosition;
     }
 }
