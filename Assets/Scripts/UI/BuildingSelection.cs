@@ -9,6 +9,8 @@ public class BuildingSelection : MonoBehaviour
     [SerializeField] private Image icon;
     [SerializeField] private Image background;
 
+    private Button _button;
+
 
     public BuildingType BuildingType
     {
@@ -26,8 +28,8 @@ public class BuildingSelection : MonoBehaviour
     private void Awake()
     {
         _handleBuildingTypeAdded += SetIconSprite;
-        var button = GetComponent<Button>();
-        button.onClick.AddListener(HandleClick);
+        _button = GetComponent<Button>();
+        _button.onClick.AddListener(HandleClick);
 
         if (background && buildingUIData)
         {
@@ -56,5 +58,9 @@ public class BuildingSelection : MonoBehaviour
     private void HandleCurrentBuildingChanged(BuildingType currentBuildingType)
     {
         background.color = buildingType == currentBuildingType ? buildingUIData.selectedColor : buildingUIData.color;
+        if (_button)
+        {
+            _button.enabled = buildingType != currentBuildingType;
+        }
     }
 }
