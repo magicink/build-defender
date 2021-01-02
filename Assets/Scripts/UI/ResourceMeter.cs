@@ -11,22 +11,22 @@ public class ResourceMeter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI displayText;
     [SerializeField] private TextMeshProUGUI displayShadow;
 
-    private delegate void OnResourceChangeChange();
+    private delegate void OnResourceTypeAdded();
 
-    private OnResourceChangeChange _handleResourceChange;
+    private OnResourceTypeAdded _handleResourceTypeAdded;
 
     public ResourceType ResourceType
     {
         set
         {
             resourceType = value;
-            _handleResourceChange?.Invoke();
+            _handleResourceTypeAdded?.Invoke();
         }
     }
 
     private void Awake()
     {
-        _handleResourceChange += HandleResourceTypeAdded;
+        _handleResourceTypeAdded += HandleResourceTypeAdded;
     }
 
     private void Start()
@@ -53,6 +53,7 @@ public class ResourceMeter : MonoBehaviour
 
     private void OnDestroy()
     {
+        _handleResourceTypeAdded -= HandleResourceTypeAdded;
         ResourceManager.Instance.HandleResourceChanged -= HandleResourcesUpdate;
     }
 }

@@ -1,44 +1,40 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BuildingManager : MonoBehaviour
 {
-
+    public static BuildingManager Instance;
 
     private Camera _cameraMain;
-    private BuildingTypes _buildingTypes;
     private BuildingType _currentBuilding;
-    private int _currentIndex = 0;
+
+    public BuildingType CurrentBuilding
+    {
+        set
+        {
+            if (_currentBuilding == value) return;
+            _currentBuilding = value;
+            HandleCurrentBuildingChanged?.Invoke(_currentBuilding);
+        }
+    }
+
+    public delegate void OnCurrentBuildingChanged(BuildingType buildingType);
+
+    public OnCurrentBuildingChanged HandleCurrentBuildingChanged;
 
     private void Awake()
     {
+        Instance = this;
         _cameraMain = Camera.main;
-        _buildingTypes = Resources.Load<BuildingTypes>("BuildingTypes");
-        if (!_buildingTypes || _buildingTypes.data.Count <= 0) return;
-        _currentBuilding = _buildingTypes.data[0];
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (!_currentBuilding || !Input.GetMouseButtonDown(0) || EventSystem.current.IsPointerOverGameObject()) return;
+        var buildingPrefab = _currentBuilding.prefab;
+        if (buildingPrefab)
         {
-            if (_buildingTypes.data.Count > 0)
-            {
-                var nextIndex = _currentIndex + 1;
-                if (nextIndex + 1 > _buildingTypes.data.Count)
-                {
-                    nextIndex = 0;
-                }
-                _currentBuilding = _buildingTypes.data[nextIndex];
-                _currentIndex = nextIndex;
-            }
-        }
-        if (Input.GetMouseButtonDown(0) && _currentBuilding)
-        {
-            var buildingPrefab = _currentBuilding.prefab;
-            if (buildingPrefab)
-            {
-                Instantiate(buildingPrefab, GetScreenPointToWorld(), Quaternion.identity);
-            }
+            Instantiate(buildingPrefab, GetScreenPointToWorld(), Quaternion.identity);
         }
 
     }
