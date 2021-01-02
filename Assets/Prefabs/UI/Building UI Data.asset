@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42abccd9618b4d199081b1a6eda4b53a, type: 3}
   m_Name: Building UI Data
   m_EditorClassIdentifier: 
-  color: {r: 0.7169812, g: 0.4344236, b: 0.21982914, a: 0}
+  color: {r: 0.7169812, g: 0.4344236, b: 0.21982914, a: 1}
+  selectedColor: {r: 0.21960783, g: 0.7176471, b: 0.34274712, a: 1}
