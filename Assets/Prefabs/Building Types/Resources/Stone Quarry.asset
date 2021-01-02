@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99567b4171c4ca945a63eb51e5e2690b, type: 3}
+  m_Name: Stone Quarry
+  m_EditorClassIdentifier: 
+  displayName: Stone Quarry
+  prefab: {fileID: 489801091156067160, guid: 7510c1b8d7d33b24baab6c3a6c6f021a, type: 3}
+  ResourceGeneratorData:
+    MaxTimeToLive: 1
+    ResourceType: {fileID: 11400000, guid: 5c3d6652f1333b947a1d984b9f7f0fc4, type: 2}
