@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeavesWind
-  m_Shader: {fileID: -6465566751694194690, guid: d764f071865d70043acf3297af59e794, type: 3}
+  m_Name: Sprite Outline
+  m_Shader: {fileID: -6465566751694194690, guid: d0d9d24b58a17644784030d9c6f2c11a, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,19 +19,7 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -48,14 +36,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_f4337ba1a39b4d16b259d167e5147f49: 0
-    - _EnableExternalAlpha: 0
+    - Vector1_0529acf93cf74007a94c46627baf2927: 0
     - _OutlineThickness: 0
     m_Colors:
-    - Color_3805247cd4154bacbe538b4d3c4569a6: {r: 1, g: 1, b: 1, a: 0}
-    - Vector2_d50e6a0a8d7d4aca9832bf6ac751d240: {r: 0.005, g: 0.01, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _OutlineColor: {r: 2, g: 2, b: 2, a: 0}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - Color_225fedf0edb14ab2b49d513545fed837: {r: 1, g: 1, b: 1, a: 0}
+    - _OutlineColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
