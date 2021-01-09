@@ -7,4 +7,5 @@ public class BuildingType : ScriptableObject
     public GameObject prefab;
     public Sprite icon;
     public ResourceGeneratorData ResourceGeneratorData;
+    public float range = 5.0f;
 }

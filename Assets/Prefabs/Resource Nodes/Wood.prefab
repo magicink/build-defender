@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!58 &4129910943691464451
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288648949981355026}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.25}
+  serializedVersion: 2
+  m_Radius: 0.35
 --- !u!114 &2453697970391324032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21,6 +37,21 @@ MonoBehaviour:
   - {fileID: 8567868621455663911}
   - {fileID: 6456867095498514913}
   - {fileID: 5199228193658945219}
+--- !u!114 &2968591104630455763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3288648949981355026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81972095bb6f5b49a55aa8205da8dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlined: 0
+  thickness: 1.5
+  speed: 2.5
 --- !u!1 &5274706304932569607
 GameObject:
   m_ObjectHideFlags: 0

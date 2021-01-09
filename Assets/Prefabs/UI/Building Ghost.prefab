@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2410640821269194368}
   - component: {fileID: 2410640821269194399}
+  - component: {fileID: 8586094148046954146}
   m_Layer: 0
   m_Name: Building Ghost
   m_TagString: Untagged
@@ -46,6 +47,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghost: {fileID: 2410640822220494265}
   buildingType: {fileID: 0}
+--- !u!58 &8586094148046954146
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2410640821269194398}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &2410640822220494263
 GameObject:
   m_ObjectHideFlags: 0
