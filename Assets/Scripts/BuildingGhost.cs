@@ -8,6 +8,8 @@ public class BuildingGhost : MonoBehaviour
 
     private CircleCollider2D _circleCollider2D;
 
+    public BuildingType BuildingType => buildingType;
+
     private void Awake()
     {
         if (ghost)

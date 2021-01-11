@@ -18,3 +18,4 @@ MonoBehaviour:
   ResourceGeneratorData:
     MaxTimeToLive: 1
     ResourceType: {fileID: 11400000, guid: 5c3d6652f1333b947a1d984b9f7f0fc4, type: 2}
+  range: 7.5
