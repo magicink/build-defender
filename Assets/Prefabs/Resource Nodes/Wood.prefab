@@ -71,8 +71,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlined: 0
-  thickness: 1.5
-  speed: 2.5
+  thickness: 3
+  speed: 4
 --- !u!114 &5365941582238209067
 MonoBehaviour:
   m_ObjectHideFlags: 0

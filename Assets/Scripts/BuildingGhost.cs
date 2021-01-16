@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -51,5 +52,14 @@ public class BuildingGhost : MonoBehaviour
     {
         transform.position = Utils.GetMousePosition();
         ghost.enabled = buildingType && !EventSystem.current.IsPointerOverGameObject();
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (ghost.enabled && buildingType)
+        {
+            Gizmos.color = new Color(1,0,0,.1f);
+            Gizmos.DrawSphere(Utils.GetMousePosition(), buildingType.range);
+        }
     }
 }

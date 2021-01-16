@@ -31,6 +31,16 @@ namespace Shaders
             }
         }
 
+        private void Start()
+        {
+            BuildingManager.Instance.HandleCurrentBuildingChanged += HandleBuildingHasChanged;
+        }
+
+        private void HandleBuildingHasChanged(BuildingType buildingType)
+        {
+            Outlined = false;
+        }
+
         private void Update()
         {
             if (_outlines.Count < 1) return;
