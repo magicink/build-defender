@@ -36,7 +36,7 @@ public class ResourceManager : MonoBehaviour
 
     private void AddResource(ResourceType resourceType, ResourceGenerator generator)
     {
-        _resourceTypes[resourceType] = Mathf.Clamp(_resourceTypes[resourceType] + 1, 0, 999);
+        _resourceTypes[resourceType] = Mathf.Clamp(_resourceTypes[resourceType] + generator.TotalNodes, 0, 999);
         HandleResourceChanged?.Invoke(_resourceTypes);
     }
 }

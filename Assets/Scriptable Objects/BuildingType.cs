@@ -8,4 +8,5 @@ public class BuildingType : ScriptableObject
     public Sprite icon;
     public ResourceGeneratorData ResourceGeneratorData;
     public float range = 5.0f;
+    public int maxNodes = 5;
 }
