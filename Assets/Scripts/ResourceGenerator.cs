@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(BuildingData))]
 public class ResourceGenerator : MonoBehaviour
 {
-    public delegate void OnResourceGeneration(ResourceType resourceType);
+    public delegate void OnResourceGeneration(ResourceType resourceType, ResourceGenerator generator);
 
     public OnResourceGeneration HandleResourceGeneration;
     
@@ -27,12 +27,26 @@ public class ResourceGenerator : MonoBehaviour
         ResourceManager.Instance.AddListener(this);
     }
 
+    private void Start()
+    {
+        var results = Physics2D.OverlapCircleAll(transform.position, _buildingType.range);
+        foreach (var other in results)
+        {
+            var resourceNode = other.gameObject.GetComponent<ResourceNode>();
+            if (!resourceNode) continue;
+            if (resourceNode.ResourceType == _buildingType.ResourceGeneratorData.ResourceType)
+            {
+                Debug.Log(resourceNode);
+            }
+        }
+    }
+
     private void Update()
     {
         if (!_buildingType || !_resourceType) return;
         timeToLive -= Time.deltaTime;
         if (!(timeToLive <= 0)) return;
-        HandleResourceGeneration?.Invoke(_resourceType);
+        HandleResourceGeneration?.Invoke(_resourceType, this);
         timeToLive = maxTimeToLive;
     }
 

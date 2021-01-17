@@ -25,7 +25,7 @@ public class BuildingManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        _cameraMain = Camera.main;
+        // _cameraMain = Camera.main;
     }
 
     private void Update()

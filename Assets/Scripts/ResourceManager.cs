@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.iOS;
 using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
@@ -34,7 +35,7 @@ public class ResourceManager : MonoBehaviour
         generator.HandleResourceGeneration -= AddResource;
     }
 
-    private void AddResource(ResourceType resourceType)
+    private void AddResource(ResourceType resourceType, ResourceGenerator generator)
     {
         _resourceTypes[resourceType] = Mathf.Clamp(_resourceTypes[resourceType] + 1, 0, 999);
         HandleResourceChanged?.Invoke(_resourceTypes);
