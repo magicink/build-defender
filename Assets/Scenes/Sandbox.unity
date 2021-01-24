@@ -636,6 +636,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6370381260177719171, guid: 4b485790d6f5c5948a5cdb119287a8f6, type: 3}
+      propertyPath: outlined
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7092084126828469214, guid: 4b485790d6f5c5948a5cdb119287a8f6, type: 3}
       propertyPath: m_Name
       value: Stone (1)
@@ -1713,6 +1717,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2104247918516038939, guid: fa6a90efab81ba140be2cdda85ec3fa7, type: 3}
+      propertyPath: outlined
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6033475700097965368, guid: fa6a90efab81ba140be2cdda85ec3fa7, type: 3}
       propertyPath: m_Name
       value: Gold (3)
