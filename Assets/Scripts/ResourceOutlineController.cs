@@ -17,7 +17,12 @@ public class ResourceOutlineController : MonoBehaviour
     {
         HandleTrigger(other, true);
     }
-    
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        HandleTrigger(other, true);
+    }
+
     private void OnTriggerExit2D(Collider2D other)
     {
         HandleTrigger(other, false);

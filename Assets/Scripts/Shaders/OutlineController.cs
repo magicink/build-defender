@@ -45,6 +45,8 @@ namespace Shaders
         {
             if (_outlines.Count < 1) return;
             _targetThickness = Outlined ? thickness : 0.0f;
+            Debug.Log($"Target thickness: {_targetThickness}");
+            Debug.Log($"Current thickness: {_currentThickness}");
             if (_currentThickness < _targetThickness || _currentThickness > _targetThickness)
             {
                 _currentThickness = Mathf.Lerp(_currentThickness, _targetThickness, Time.deltaTime * speed);

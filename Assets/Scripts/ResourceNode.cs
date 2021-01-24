@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ResourceNode : MonoBehaviour
@@ -7,16 +5,4 @@ public class ResourceNode : MonoBehaviour
     [SerializeField] private ResourceType _resourceType;
 
     public ResourceType ResourceType => _resourceType;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
