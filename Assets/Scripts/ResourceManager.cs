@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,20 +10,38 @@ public class ResourceManager : MonoBehaviour
 
     public OnResourceChanged HandleResourceChanged;
 
-    private readonly Dictionary<ResourceType, int> _resourceTypes = new Dictionary<ResourceType, int>();
+    private readonly Dictionary<ResourceType, int> _available = new Dictionary<ResourceType, int>();
+    private readonly Dictionary<ResourceType, int> _accumulated = new Dictionary<ResourceType, int>();
+    private ResourceTypes _source;
+    private float _elapsed;
 
     private void Awake()
     {
         Instance = this;
-        var source = Resources.Load<ResourceTypes>(nameof(ResourceTypes));
-        if (!source) return;
-        if (source.data.Count <= 0) return;
-        foreach (var resourceType in source.data)
+        _source = Resources.Load<ResourceTypes>(nameof(ResourceTypes));
+        if (!_source) return;
+        if (_source.data.Count <= 0) return;
+        foreach (var resourceType in _source.data)
         {
-            _resourceTypes.Add(resourceType, 0);
+            _available.Add(resourceType, 0);
+            _accumulated.Add(resourceType, 0);
         }
     }
-    
+
+    private void Update()
+    {
+        _elapsed += Time.deltaTime;
+        if (_elapsed < 1.5f) return;
+        _elapsed = 0;
+        if (!_source) return;
+        foreach (var resourceType in _source.data)
+        {
+            _available[resourceType] += _accumulated[resourceType];
+            _accumulated[resourceType] = 0;
+        }
+        HandleResourceChanged?.Invoke(_available);
+    }
+
 
     public void AddListener (ResourceGenerator generator)
     {
@@ -36,7 +55,6 @@ public class ResourceManager : MonoBehaviour
 
     private void AddResource(ResourceType resourceType, ResourceGenerator generator)
     {
-        _resourceTypes[resourceType] = Mathf.Clamp(_resourceTypes[resourceType] + generator.TotalNodes, 0, 999);
-        HandleResourceChanged?.Invoke(_resourceTypes);
+        _accumulated[resourceType] = Mathf.Clamp(_accumulated[resourceType] + generator.TotalNodes, 0, 999);
     }
 }
