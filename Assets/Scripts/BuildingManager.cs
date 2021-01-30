@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -45,7 +46,12 @@ public class BuildingManager : MonoBehaviour
         var collider2d = buildingType.prefab.GetComponent<BoxCollider2D>();
         if (!collider2d) return false;
         var collisions = Physics2D.OverlapBoxAll(position + (Vector3) collider2d.offset, collider2d.size, 0);
-        // 2 Because the ghost building has a collider
-        return collisions.Length < 2;
+        if (collisions.Length > 1) return false;
+        var possibleConflicts =
+            Physics2D.OverlapCircleAll(position + (Vector3) collider2d.offset, buildingType.range);
+        return possibleConflicts
+            .Select(possibleConflict => possibleConflict.GetComponent<BuildingData>())
+            .Where(buildingData => buildingData)
+            .All(buildingData => buildingData.BuildingType != buildingType);
     }
 }
