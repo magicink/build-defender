@@ -21,7 +21,10 @@ public class BuildingManager : MonoBehaviour
 
     public delegate void OnCurrentBuildingChanged(BuildingType buildingType);
 
+    public delegate void OnBuildingConstructed(BuildingType buildingType);
+
     public OnCurrentBuildingChanged HandleCurrentBuildingChanged;
+    public OnBuildingConstructed HandleBuildingConstructed;
 
     private void Awake()
     {
@@ -37,6 +40,7 @@ public class BuildingManager : MonoBehaviour
         var buildingPrefab = _currentBuilding.prefab;
         if (buildingPrefab)
         {
+            HandleBuildingConstructed?.Invoke(_currentBuilding);
             Instantiate(buildingPrefab, mousePosition, Quaternion.identity);
         }
     }
@@ -61,6 +65,6 @@ public class BuildingManager : MonoBehaviour
     private static bool CanAfford(BuildingType buildingType)
     {
         var costs = buildingType.constructionCosts;
-        return costs.data.All(data => data.cost <= ResourceManager.Instance.Available[data.resourceType]);
+        return costs.data.All(data => data.amount <= ResourceManager.Instance.Available[data.resourceType]);
     }
 }

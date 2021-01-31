@@ -4,5 +4,5 @@
 public class ConstructionCost : ScriptableObject
 {
     public ResourceType resourceType;
-    public int cost;
+    public int amount;
 }

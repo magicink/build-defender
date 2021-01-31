@@ -31,7 +31,7 @@ public class ResourceMeter : MonoBehaviour
 
     private void Start()
     {
-        ResourceManager.Instance.HandleResourceChanged += HandleResourcesUpdate;
+        ResourceManager.Instance.HandleAvailableChange += HandleResourcesUpdate;
     }
 
     private void Update()
@@ -54,6 +54,6 @@ public class ResourceMeter : MonoBehaviour
     private void OnDestroy()
     {
         _handleResourceTypeAdded -= HandleResourceTypeAdded;
-        ResourceManager.Instance.HandleResourceChanged -= HandleResourcesUpdate;
+        ResourceManager.Instance.HandleAvailableChange -= HandleResourcesUpdate;
     }
 }

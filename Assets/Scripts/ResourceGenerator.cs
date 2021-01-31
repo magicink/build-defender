@@ -41,7 +41,7 @@ public class ResourceGenerator : MonoBehaviour
                 _totalNodes = Mathf.Clamp(_totalNodes + 1, 0, _buildingType.maxNodes);
             }
         }
-        ResourceManager.Instance.AddListener(this);
+        ResourceManager.Instance.AddAccumulationListener(this);
     }
 
     private void Update()
@@ -56,6 +56,6 @@ public class ResourceGenerator : MonoBehaviour
 
     private void OnDestroy()
     {
-        ResourceManager.Instance.RemoveListener(this);
+        ResourceManager.Instance.RemoveAccumulationListener(this);
     }
 }
