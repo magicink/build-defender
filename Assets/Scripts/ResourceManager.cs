@@ -14,6 +14,8 @@ public class ResourceManager : MonoBehaviour
     private ResourceTypes _source;
     private float _elapsed;
 
+    public Dictionary<ResourceType, int> Available => _available;
+
     private void Awake()
     {
         Instance = this;

@@ -36,7 +36,7 @@ public class ResourceOutlineController : MonoBehaviour
             var buildingType = buildingGhost.BuildingType;
             if (buildingType)
             {
-                if (buildingType.ResourceGeneratorData.ResourceType == _resourceNode.ResourceType)
+                if (buildingType.resourceGeneratorData.ResourceType == _resourceNode.ResourceType)
                 {
                     _outlineController.Outlined = outlined;
                 }

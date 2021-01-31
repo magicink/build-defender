@@ -23,8 +23,8 @@ public class ResourceGenerator : MonoBehaviour
         if (buildingData)
         {
             _buildingType = buildingData.BuildingType;
-            _resourceType = _buildingType.ResourceGeneratorData.ResourceType;
-            maxTimeToLive = _buildingType.ResourceGeneratorData.MaxTimeToLive;
+            _resourceType = _buildingType.resourceGeneratorData.ResourceType;
+            maxTimeToLive = _buildingType.resourceGeneratorData.MaxTimeToLive;
         }
         timeToLive = maxTimeToLive;
     }
@@ -36,7 +36,7 @@ public class ResourceGenerator : MonoBehaviour
         {
             var resourceNode = other.gameObject.GetComponent<ResourceNode>();
             if (!resourceNode) continue;
-            if (resourceNode.ResourceType == _buildingType.ResourceGeneratorData.ResourceType)
+            if (resourceNode.ResourceType == _buildingType.resourceGeneratorData.ResourceType)
             {
                 _totalNodes = Mathf.Clamp(_totalNodes + 1, 0, _buildingType.maxNodes);
             }

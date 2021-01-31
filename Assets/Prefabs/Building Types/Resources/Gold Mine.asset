@@ -15,6 +15,10 @@ MonoBehaviour:
   displayName: Gold Mine
   prefab: {fileID: 6560759913814510155, guid: 4453bff8d8d0476418fbd9775344ed14, type: 3}
   icon: {fileID: 21300000, guid: 8ead931dd91bff8489e75de9c414f17f, type: 3}
-  ResourceGeneratorData:
-    MaxTimeToLive: 2
+  resourceGeneratorData:
+    MaxTimeToLive: 2.5
     ResourceType: {fileID: 11400000, guid: 5e58d1ad2137e8a419e9cde809eb2769, type: 2}
+  range: 5
+  maxNodes: 5
+  constructionCosts:
+    data: []

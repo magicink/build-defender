@@ -15,8 +15,11 @@ MonoBehaviour:
   displayName: Lumber Mill
   prefab: {fileID: 6560759913814510155, guid: 751dee28ab6aa6e4ab242843936c9974, type: 3}
   icon: {fileID: 21300000, guid: 793ca27a5a3378149aaa12abe85933f4, type: 3}
-  ResourceGeneratorData:
-    MaxTimeToLive: 0.75
+  resourceGeneratorData:
+    MaxTimeToLive: 1.5
     ResourceType: {fileID: 11400000, guid: cc57ddcb45e22e44da2ed97d8a73fae3, type: 2}
   range: 7.5
   maxNodes: 5
+  constructionCosts:
+    data:
+    - {fileID: 11400000, guid: a1dedcba239244e48b2db586db9c814e, type: 2}

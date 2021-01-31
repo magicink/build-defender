@@ -45,6 +45,7 @@ public class BuildingManager : MonoBehaviour
     {
         var collider2d = buildingType.prefab.GetComponent<BoxCollider2D>();
         if (!collider2d) return false;
+        if (!CanAfford(buildingType)) return false;
         var collisions = Physics2D.OverlapBoxAll(position + (Vector3) collider2d.offset, collider2d.size, 0);
         if (collisions.Length > 1) return false;
         var possibleConflicts =
@@ -55,5 +56,11 @@ public class BuildingManager : MonoBehaviour
         }
         var nearbyBuildings = Physics2D.OverlapCircleAll(position + (Vector3) collider2d.offset, buildingType.range * 1.5f);
         return nearbyBuildings.Select(nearbyBuilding => nearbyBuilding.GetComponent<BuildingData>()).Any(buildingData => buildingData);
+    }
+
+    private static bool CanAfford(BuildingType buildingType)
+    {
+        var costs = buildingType.constructionCosts;
+        return costs.data.All(data => data.cost <= ResourceManager.Instance.Available[data.resourceType]);
     }
 }
