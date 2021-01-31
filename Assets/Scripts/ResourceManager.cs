@@ -36,7 +36,7 @@ public class ResourceManager : MonoBehaviour
         if (!_source) return;
         foreach (var resourceType in _source.data)
         {
-            _available[resourceType] += _accumulated[resourceType];
+            _available[resourceType] = Mathf.Clamp(_accumulated[resourceType] + _available[resourceType], 0, 999); 
             _accumulated[resourceType] = 0;
         }
         HandleResourceChanged?.Invoke(_available);

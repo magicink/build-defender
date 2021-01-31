@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -49,9 +50,11 @@ public class BuildingManager : MonoBehaviour
         if (collisions.Length > 1) return false;
         var possibleConflicts =
             Physics2D.OverlapCircleAll(position + (Vector3) collider2d.offset, buildingType.range);
-        return possibleConflicts
-            .Select(possibleConflict => possibleConflict.GetComponent<BuildingData>())
-            .Where(buildingData => buildingData)
-            .All(buildingData => buildingData.BuildingType != buildingType);
+        if (possibleConflicts.Select(collision => collision.GetComponent<BuildingData>()).Where(buildingData => buildingData).Any(buildingData => buildingData.BuildingType == buildingType))
+        {
+            return false;
+        }
+        var nearbyBuildings = Physics2D.OverlapCircleAll(position + (Vector3) collider2d.offset, buildingType.range * 1.5f);
+        return nearbyBuildings.Select(nearbyBuilding => nearbyBuilding.GetComponent<BuildingData>()).Any(buildingData => buildingData);
     }
 }
