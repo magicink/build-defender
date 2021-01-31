@@ -27,7 +27,6 @@ public class ResourceGenerator : MonoBehaviour
             maxTimeToLive = _buildingType.ResourceGeneratorData.MaxTimeToLive;
         }
         timeToLive = maxTimeToLive;
-        ResourceManager.Instance.AddListener(this);
     }
 
     private void Start()
@@ -42,6 +41,7 @@ public class ResourceGenerator : MonoBehaviour
                 _totalNodes = Mathf.Clamp(_totalNodes + 1, 0, _buildingType.maxNodes);
             }
         }
+        ResourceManager.Instance.AddListener(this);
     }
 
     private void Update()
