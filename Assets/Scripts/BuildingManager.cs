@@ -1,4 +1,5 @@
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,7 +20,7 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
-    public delegate void OnCurrentBuildingChanged(BuildingType buildingType);
+    public delegate void OnCurrentBuildingChanged([CanBeNull] BuildingType buildingType);
 
     public delegate void OnBuildingConstructed(BuildingType buildingType);
 
@@ -34,6 +35,15 @@ public class BuildingManager : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (_currentBuilding)
+            {
+                CurrentBuilding = null;
+            }
+
+            return;
+        }
         var mousePosition = Utils.GetMousePosition();
         if (!_currentBuilding || !Input.GetMouseButtonDown(0) || EventSystem.current.IsPointerOverGameObject()) return;
         if (!CanSpawn(_currentBuilding, mousePosition)) return;
@@ -42,6 +52,7 @@ public class BuildingManager : MonoBehaviour
         {
             HandleBuildingConstructed?.Invoke(_currentBuilding);
             Instantiate(buildingPrefab, mousePosition, Quaternion.identity);
+            CurrentBuilding = null;
         }
     }
 

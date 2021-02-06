@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -26,10 +27,10 @@ public class BuildingGhost : MonoBehaviour
         BuildingManager.Instance.HandleCurrentBuildingChanged += HandleCurrentBuildingChanged;
     }
 
-    private void HandleCurrentBuildingChanged(BuildingType nextBuildingType)
+    private void HandleCurrentBuildingChanged([CanBeNull] BuildingType nextBuildingType)
     {
         if (!ghost) return;
-        if (nextBuildingType != null)
+        if (nextBuildingType)
         {
             buildingType = nextBuildingType;
             ghost.sprite = buildingType.icon;
@@ -40,6 +41,7 @@ public class BuildingGhost : MonoBehaviour
         }
         else
         {
+            buildingType = null;
             ghost.enabled = false;
             if (!_circleCollider2D) return;
             _circleCollider2D.enabled = false;

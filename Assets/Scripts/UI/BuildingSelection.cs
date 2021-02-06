@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,11 +55,18 @@ public class BuildingSelection : MonoBehaviour
         BuildingManager.Instance.CurrentBuilding = buildingType;
     }
 
-    private void HandleCurrentBuildingChanged(BuildingType currentBuildingType)
+    private void HandleCurrentBuildingChanged([CanBeNull] BuildingType currentBuildingType)
     {
-        background.color = buildingType == currentBuildingType ? buildingUIData.selectedColor : buildingUIData.color;
         if (_button)
         {
+            if (currentBuildingType)
+            {
+                background.color = buildingType == currentBuildingType ? buildingUIData.selectedColor : buildingUIData.color;
+            }
+            else
+            {
+                background.color = buildingUIData.color;
+            }
             _button.enabled = buildingType != currentBuildingType;
         }
     }
