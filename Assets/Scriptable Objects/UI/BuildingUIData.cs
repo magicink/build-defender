@@ -5,4 +5,5 @@ public class BuildingUIData : ScriptableObject
 {
     public Color color;
     public Color selectedColor;
+    public Color disabledColor;
 }

@@ -21,4 +21,5 @@ MonoBehaviour:
   range: 7.5
   maxNodes: 5
   constructionCosts:
-    data: []
+    data:
+    - {fileID: 11400000, guid: 62cced5bf822d4145a168f42d5793f1e, type: 2}

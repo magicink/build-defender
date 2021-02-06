@@ -13,9 +13,8 @@ public class ResourceGenerator : MonoBehaviour
 
     private BuildingType _buildingType;
     private ResourceType _resourceType;
-    private int _totalNodes;
 
-    public int TotalNodes => _totalNodes;
+    public int TotalNodes { get; private set; }
 
     private void Awake()
     {
@@ -38,7 +37,7 @@ public class ResourceGenerator : MonoBehaviour
             if (!resourceNode) continue;
             if (resourceNode.ResourceType == _buildingType.resourceGeneratorData.ResourceType)
             {
-                _totalNodes = Mathf.Clamp(_totalNodes + 1, 0, _buildingType.maxNodes);
+                TotalNodes = Mathf.Clamp(TotalNodes + 1, 0, _buildingType.maxNodes);
             }
         }
         ResourceManager.Instance.AddAccumulationListener(this);

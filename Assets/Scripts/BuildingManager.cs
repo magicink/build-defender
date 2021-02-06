@@ -73,7 +73,7 @@ public class BuildingManager : MonoBehaviour
         return nearbyBuildings.Select(nearbyBuilding => nearbyBuilding.GetComponent<BuildingData>()).Any(buildingData => buildingData);
     }
 
-    private static bool CanAfford(BuildingType buildingType)
+    public static bool CanAfford(BuildingType buildingType)
     {
         var costs = buildingType.constructionCosts;
         return costs.data.All(data => data.amount <= ResourceManager.Instance.Available[data.resourceType]);
