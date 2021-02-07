@@ -227,6 +227,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2867099376789476277}
     m_Modifications:
+    - target: {fileID: 49128645341587061, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
+      propertyPath: m_fontSize
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 1515145458449881134, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
       propertyPath: m_Name
       value: Building Stats
@@ -258,14 +262,6 @@ PrefabInstance:
     - target: {fileID: 2007797624430478808, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2007797624430478808, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2007797624430478808, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2007797624430478808, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -301,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2007797624430478808, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2
+      value: -2.15
       objectReference: {fileID: 0}
     - target: {fileID: 2007797624430478808, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
