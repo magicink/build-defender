@@ -11,6 +11,8 @@ public class BuildingSelection : MonoBehaviour
     [SerializeField] private Image background;
 
     private Button _button;
+    private BuildingType _selectedBuildingType;
+    public Image Icon { get; }
 
     public BuildingType BuildingType
     {
@@ -40,6 +42,20 @@ public class BuildingSelection : MonoBehaviour
     private void Start()
     {
         BuildingManager.Instance.HandleCurrentBuildingChanged += HandleCurrentBuildingChanged;
+        if (icon) icon.material = buildingType.iconMaterial;
+    }
+
+    private void Update()
+    {
+        if (!_button) return;
+        var selected = buildingType == _selectedBuildingType;
+        var buttonEnabled = buildingType != _selectedBuildingType && BuildingManager.CanAfford(buildingType);
+        background.color = selected ? buildingUIData.selectedColor : buttonEnabled ? buildingUIData.color : buildingUIData.disabledColor;
+        _button.enabled = buttonEnabled;
+        if (icon.material.HasProperty(MaterialProperties.Alpha))
+        {
+            icon.material.SetFloat(MaterialProperties.Alpha, buttonEnabled || selected ? 1.0f : 0.5f);
+        }
     }
 
     private void SetIconSprite()
@@ -57,17 +73,7 @@ public class BuildingSelection : MonoBehaviour
 
     private void HandleCurrentBuildingChanged([CanBeNull] BuildingType currentBuildingType)
     {
-        if (_button)
-        {
-            if (currentBuildingType)
-            {
-                background.color = buildingType == currentBuildingType ? buildingUIData.selectedColor : buildingUIData.color;
-            }
-            else
-            {
-                background.color = buildingUIData.color;
-            }
-            _button.enabled = buildingType != currentBuildingType;
-        }
+        if (!_button) return;
+        _selectedBuildingType = currentBuildingType;
     }
 }

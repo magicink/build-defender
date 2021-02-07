@@ -15,6 +15,7 @@ MonoBehaviour:
   displayName: Stone Quarry
   prefab: {fileID: 489801091156067160, guid: 7510c1b8d7d33b24baab6c3a6c6f021a, type: 3}
   icon: {fileID: 21300000, guid: 2263e91ebcd2a254dab5f4caccb4a7af, type: 3}
+  iconMaterial: {fileID: 2100000, guid: 654d55ec5222a1e4193adad5bdf0e382, type: 2}
   resourceGeneratorData:
     MaxTimeToLive: 2.5
     ResourceType: {fileID: 11400000, guid: 5c3d6652f1333b947a1d984b9f7f0fc4, type: 2}
