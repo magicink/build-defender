@@ -1,4 +1,6 @@
+using System.Linq;
 using JetBrains.Annotations;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,6 +8,8 @@ public class BuildingGhost : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer ghost;
     [SerializeField] private BuildingType buildingType;
+    [SerializeField] private Canvas ui;
+    [SerializeField] private TextMeshProUGUI label;
 
     private CircleCollider2D _circleCollider2D;
 
@@ -53,6 +57,23 @@ public class BuildingGhost : MonoBehaviour
     {
         transform.position = Utils.GetMousePosition();
         ghost.enabled = buildingType && !EventSystem.current.IsPointerOverGameObject();
+        if (ui) ui.enabled = ghost.enabled;
+        if (!label || !ghost.enabled) return;
+        var resourceType = buildingType.resourceGeneratorData.ResourceType;
+        var result = Physics2D.OverlapCircleAll(transform.position, buildingType.range);
+        var count = 0;
+        foreach (var c in result)
+        {
+            var resourceNode = c.GetComponent<ResourceNode>();
+            if (!resourceNode) continue;
+            var rt = resourceNode.ResourceType;
+            if (rt == resourceType)
+            {
+                count++;
+            }
+        }
+        count = Mathf.Clamp(count, 0, buildingType.maxNodes);
+        label.text = $"{count}/{buildingType.maxNodes}";
     }
 
     private void OnDrawGizmos()
