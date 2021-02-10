@@ -61,17 +61,7 @@ public class BuildingGhost : MonoBehaviour
         if (!label || !ghost.enabled) return;
         var resourceType = buildingType.resourceGeneratorData.ResourceType;
         var result = Physics2D.OverlapCircleAll(transform.position, buildingType.range);
-        var count = 0;
-        foreach (var c in result)
-        {
-            var resourceNode = c.GetComponent<ResourceNode>();
-            if (!resourceNode) continue;
-            var rt = resourceNode.ResourceType;
-            if (rt == resourceType)
-            {
-                count++;
-            }
-        }
+        var count = (from c in result select c.GetComponent<ResourceNode>() into rn where rn select rn.ResourceType).Count(rt => rt == resourceType);
         count = Mathf.Clamp(count, 0, buildingType.maxNodes);
         label.text = $"{count}/{buildingType.maxNodes}";
     }
