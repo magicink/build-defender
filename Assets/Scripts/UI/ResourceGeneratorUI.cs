@@ -7,6 +7,7 @@ public class ResourceGeneratorUI : MonoBehaviour
     [SerializeField] private BuildingData buildingData;
     [SerializeField] private Image resourceIcon;
     [SerializeField] private TextMeshProUGUI resourceLabel;
+    [SerializeField] private Image healthBar;
 
     private ResourceGenerator _resourceGenerator;
 
@@ -23,5 +24,10 @@ public class ResourceGeneratorUI : MonoBehaviour
         {
             resourceLabel.text = $"{_resourceGenerator.TotalNodes} / {buildingData.BuildingType.maxNodes}";
         }
+
+        if (!_resourceGenerator || !healthBar) return;
+        var healthPercentage =
+            Mathf.Clamp((float) _resourceGenerator.CurrentHitPoints / _resourceGenerator.MaxHitPoints, 0, 1);
+        healthBar.rectTransform.localScale = new Vector3(healthPercentage, 1, 1);
     }
 }
