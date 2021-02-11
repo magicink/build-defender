@@ -24,3 +24,4 @@ MonoBehaviour:
   constructionCosts:
     data:
     - {fileID: 11400000, guid: a1dedcba239244e48b2db586db9c814e, type: 2}
+  startingHitPoints: 50

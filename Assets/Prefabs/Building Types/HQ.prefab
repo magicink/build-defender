@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 3131411641551721205}
   - component: {fileID: 170552162607145203}
   - component: {fileID: 5485177326350749476}
+  - component: {fileID: 9168646932824484363}
   m_Layer: 0
   m_Name: HQ
   m_TagString: Untagged
@@ -220,6 +221,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: {fileID: 11400000, guid: e500667ce2790c2408dca67eeb3c139f, type: 2}
+--- !u!114 &9168646932824484363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7445739461776881769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dce23a74735016478dcba048cf02d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHitPoints: 0
+  maxHitPoints: 0
 --- !u!1001 &7644918334393955637
 PrefabInstance:
   m_ObjectHideFlags: 0

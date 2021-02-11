@@ -25,3 +25,4 @@ MonoBehaviour:
     data:
     - {fileID: 11400000, guid: ae8be6e74b5ca2241838133d27d0d726, type: 2}
     - {fileID: 11400000, guid: 26caa62ff7d3a4041b9716a55bf97adf, type: 2}
+  startingHitPoints: 50

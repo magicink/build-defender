@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7212966610046063504}
   - component: {fileID: -7670867691124512931}
   - component: {fileID: 1675555129071437082}
+  - component: {fileID: 4973369198286875818}
   m_Layer: 0
   m_Name: Stone Quarry
   m_TagString: Untagged
@@ -89,6 +90,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9599783, y: 2.058738}
   m_EdgeRadius: 0
+--- !u!114 &4973369198286875818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489801091156067160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dce23a74735016478dcba048cf02d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHitPoints: 0
+  maxHitPoints: 0
 --- !u!1 &3653418316393577610
 GameObject:
   m_ObjectHideFlags: 0

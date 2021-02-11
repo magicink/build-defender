@@ -15,6 +15,7 @@ MonoBehaviour:
   displayName: Headquarters
   prefab: {fileID: 7445739461776881769, guid: 0c24f152e7f3ac64ca6199cd7104d686, type: 3}
   icon: {fileID: 21300000, guid: 7030b8e3eb49e8440ae8eb3ec8b45d05, type: 3}
+  iconMaterial: {fileID: 0}
   resourceGeneratorData:
     MaxTimeToLive: 2
     ResourceType: {fileID: 11400000, guid: cc57ddcb45e22e44da2ed97d8a73fae3, type: 2}
@@ -22,3 +23,4 @@ MonoBehaviour:
   maxNodes: 5
   constructionCosts:
     data: []
+  startingHitPoints: 500
