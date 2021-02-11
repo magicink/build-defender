@@ -17,9 +17,9 @@ public class ResourceGeneratorUI : MonoBehaviour
     {
         if (!buildingData || !resourceIcon) return;
         _resourceGenerator = buildingData.GetComponent<ResourceGenerator>();
+        resourceIcon.sprite = buildingData.BuildingType.resourceGeneratorData.ResourceType.icon;
         if (!_resourceGenerator) return;
         _healthManager = _resourceGenerator.GetComponent<HealthManager>();
-        resourceIcon.sprite = buildingData.BuildingType.resourceGeneratorData.ResourceType.icon;
     }
 
     private void Update()
