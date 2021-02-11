@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(BuildingData))]
-public class HealthManager : MonoBehaviour
+public class HealthController : MonoBehaviour
 {
     [SerializeField] private int currentHitPoints;
     [SerializeField] private int maxHitPoints;
