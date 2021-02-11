@@ -10,25 +10,11 @@ public class ResourceGenerator : MonoBehaviour
     [SerializeField] private float timeToLive;
     [SerializeField] private float maxTimeToLive = 1.0f;
     [SerializeField] private BuildingData buildingData;
-    [SerializeField] private int currentHitPoints;
-    [SerializeField] private int maxHitPoints;
 
     private BuildingType _buildingType;
     private ResourceType _resourceType;
 
     public int TotalNodes { get; private set; }
-
-    public int CurrentHitPoints
-    {
-        get => currentHitPoints;
-        private set => currentHitPoints = value;
-    }
-
-    public int MaxHitPoints
-    {
-        get => maxHitPoints;
-        private set => maxHitPoints = value;
-    }
 
     private void Awake()
     {
@@ -38,7 +24,6 @@ public class ResourceGenerator : MonoBehaviour
             _buildingType = buildingData.BuildingType;
             _resourceType = _buildingType.resourceGeneratorData.ResourceType;
             maxTimeToLive = _buildingType.resourceGeneratorData.MaxTimeToLive;
-            CurrentHitPoints = MaxHitPoints = _buildingType.startingHitPoints;
         }
         timeToLive = maxTimeToLive;
     }

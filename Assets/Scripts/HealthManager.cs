@@ -1,16 +1,34 @@
 using UnityEngine;
 
+[RequireComponent(typeof(BuildingData))]
 public class HealthManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int currentHitPoints;
+    [SerializeField] private int maxHitPoints;
+    private BuildingData _buildingData;
+    private BuildingType _buildingType;
+
+
+    public int CurrentHitPoints
     {
-        
+        get => currentHitPoints;
+        set => currentHitPoints = value;
     }
 
-    // Update is called once per frame
-    void Update()
+    public int MaxHitPoints
     {
-        
+        get => maxHitPoints;
+        set => maxHitPoints = value;
+    }
+
+    private void Awake()
+    {
+        _buildingData = GetComponent<BuildingData>();
+        _buildingType = _buildingData.BuildingType;
+        if (_buildingData)
+        {
+            CurrentHitPoints = MaxHitPoints = _buildingType.startingHitPoints;
+        }
+
     }
 }

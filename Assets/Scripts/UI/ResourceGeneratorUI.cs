@@ -10,11 +10,15 @@ public class ResourceGeneratorUI : MonoBehaviour
     [SerializeField] private Image healthBar;
 
     private ResourceGenerator _resourceGenerator;
+    private HealthManager _healthManager;
+    public Gradient gradient;
 
     private void Start()
     {
         if (!buildingData || !resourceIcon) return;
         _resourceGenerator = buildingData.GetComponent<ResourceGenerator>();
+        if (!_resourceGenerator) return;
+        _healthManager = _resourceGenerator.GetComponent<HealthManager>();
         resourceIcon.sprite = buildingData.BuildingType.resourceGeneratorData.ResourceType.icon;
     }
 
@@ -25,9 +29,10 @@ public class ResourceGeneratorUI : MonoBehaviour
             resourceLabel.text = $"{_resourceGenerator.TotalNodes} / {buildingData.BuildingType.maxNodes}";
         }
 
-        if (!_resourceGenerator || !healthBar) return;
+        if (!_healthManager || !healthBar) return;
         var healthPercentage =
-            Mathf.Clamp((float) _resourceGenerator.CurrentHitPoints / _resourceGenerator.MaxHitPoints, 0, 1);
+            Mathf.Clamp((float) _healthManager.CurrentHitPoints / _healthManager.MaxHitPoints, 0, 1);
+        healthBar.color = gradient.Evaluate(healthPercentage);
         healthBar.rectTransform.localScale = new Vector3(healthPercentage, 1, 1);
     }
 }
