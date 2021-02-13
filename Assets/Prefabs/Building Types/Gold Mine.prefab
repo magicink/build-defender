@@ -208,8 +208,6 @@ MonoBehaviour:
   timeToLive: 0
   maxTimeToLive: 1
   buildingData: {fileID: 0}
-  currentHitPoints: 0
-  maxHitPoints: 0
 --- !u!114 &-6530648801333440839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: {fileID: 11400000, guid: 501d4ab7c6b6fa54ca3c216d5b3f5fd5, type: 2}
+  isHeadquarters: 0
 --- !u!114 &-8660257270986327687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,6 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dce23a74735016478dcba048cf02d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHitPoints: 0
+  maxHitPoints: 0
 --- !u!1001 &4183548299640970576
 PrefabInstance:
   m_ObjectHideFlags: 0

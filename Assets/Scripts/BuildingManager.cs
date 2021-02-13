@@ -7,7 +7,6 @@ public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager Instance;
 
-    private Camera _cameraMain;
     private BuildingType _currentBuilding;
 
     public BuildingType CurrentBuilding
@@ -20,6 +19,8 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
+    public HealthController Headquarters { get; private set; }
+
     public delegate void OnCurrentBuildingChanged([CanBeNull] BuildingType buildingType);
 
     public delegate void OnBuildingConstructed(BuildingType buildingType);
@@ -30,11 +31,11 @@ public class BuildingManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        // _cameraMain = Camera.main;
     }
 
     private void Update()
     {
+        if (!Instance.Headquarters) return;
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (_currentBuilding)
@@ -58,6 +59,7 @@ public class BuildingManager : MonoBehaviour
 
     private static bool CanSpawn(BuildingType buildingType, Vector3 position)
     {
+        if (!Instance.Headquarters) return false;
         var collider2d = buildingType.prefab.GetComponent<BoxCollider2D>();
         if (!collider2d) return false;
         if (!CanAfford(buildingType)) return false;
@@ -75,7 +77,25 @@ public class BuildingManager : MonoBehaviour
 
     public static bool CanAfford(BuildingType buildingType)
     {
+        if (!Instance.Headquarters) return false;
         var costs = buildingType.constructionCosts;
         return costs.data.All(data => data.amount <= ResourceManager.Instance.Available[data.resourceType]);
+    }
+
+    public void SetHeadquarters(GameObject target)
+    {
+        if (Headquarters) return;
+        var headquartersHealthController = target.GetComponent<HealthController>();
+        if (headquartersHealthController)
+        {
+            Headquarters = headquartersHealthController;
+            Headquarters.handleHeadquartersDestroyed += HandleHeadquartersDestroyed;
+        }
+    }
+
+    private void HandleHeadquartersDestroyed()
+    {
+        Headquarters.handleHeadquartersDestroyed -= HandleHeadquartersDestroyed;
+        Headquarters = null;
     }
 }

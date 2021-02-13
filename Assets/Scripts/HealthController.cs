@@ -8,6 +8,9 @@ public class HealthController : MonoBehaviour
     private BuildingData _buildingData;
     private BuildingType _buildingType;
 
+    public delegate void OnHeadquartersDestroyed();
+
+    public OnHeadquartersDestroyed handleHeadquartersDestroyed;
 
     public int CurrentHitPoints
     {
@@ -30,5 +33,12 @@ public class HealthController : MonoBehaviour
             CurrentHitPoints = MaxHitPoints = _buildingType.startingHitPoints;
         }
 
+    }
+
+    private void Update()
+    {
+        if (currentHitPoints > 0) return;
+        handleHeadquartersDestroyed?.Invoke();
+        Destroy(gameObject);
     }
 }
