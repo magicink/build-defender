@@ -1,12 +1,9 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BuildingData))]
-public class HealthController : MonoBehaviour
+public class HealthController : MonoBehaviour, IHealthController
 {
     [SerializeField] private int currentHitPoints;
     [SerializeField] private int maxHitPoints;
-    private BuildingData _buildingData;
-    private BuildingType _buildingType;
 
     public delegate void OnHeadquartersDestroyed();
 
@@ -26,13 +23,19 @@ public class HealthController : MonoBehaviour
 
     private void Awake()
     {
-        _buildingData = GetComponent<BuildingData>();
-        _buildingType = _buildingData.BuildingType;
-        if (_buildingData)
+        var buildingData = GetComponent<BuildingData>();
+        if (buildingData)
         {
-            CurrentHitPoints = MaxHitPoints = _buildingType.startingHitPoints;
+            var buildingType = buildingData.BuildingType;
+            CurrentHitPoints = MaxHitPoints = buildingType.startingHitPoints;
+            return;
         }
 
+        var enemyData = GetComponent<EnemyDataController>();
+        if (enemyData)
+        {
+            CurrentHitPoints = MaxHitPoints = enemyData.Data.hitPoints;
+        }
     }
 
     private void Update()
@@ -41,4 +44,10 @@ public class HealthController : MonoBehaviour
         handleHeadquartersDestroyed?.Invoke();
         Destroy(gameObject);
     }
+}
+
+public interface IHealthController
+{
+    int CurrentHitPoints { get; set; }
+    int MaxHitPoints { get; set; }
 }

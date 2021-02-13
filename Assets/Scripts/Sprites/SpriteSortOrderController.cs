@@ -10,7 +10,7 @@ public class SpriteSortOrderController : MonoBehaviour
 
     private void Start()
     {
-        root = transform.parent;
+        if (!root) root = transform.parent;
     }
 
     private void LateUpdate()
