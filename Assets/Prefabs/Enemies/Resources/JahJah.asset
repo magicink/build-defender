@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: JahJah
   hitPoints: 2
-  damage: 2
+  damage: 30
   sprite: {fileID: 21300000, guid: ffd4d309f7f04fd46950b63405ec104b, type: 3}
   spriteColor: {r: 1, g: 0.58280706, b: 0, a: 1}
   speed: 5
+  scanRadius: 10

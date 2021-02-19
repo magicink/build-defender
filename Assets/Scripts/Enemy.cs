@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
             var dir = (_destination.position - transform.position).normalized;
             _rigidbody2D.velocity = dir * currentSpeed;
         }
+        Scan();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -55,5 +56,30 @@ public class Enemy : MonoBehaviour
         if (!building) return;
         building.CurrentHitPoints -= _enemyDataController.Data.damage;
         Destroy(gameObject);
+    }
+
+    private void Scan()
+    {
+        var collisions = Physics2D.OverlapCircleAll(transform.position, _enemyDataController.Data.scanRadius);
+        foreach (var collision in collisions)
+        {
+            var building = collision.gameObject.GetComponent<BuildingData>();
+            if (!building) continue;
+            if (!_destination)
+            {
+                _destination = building.transform;
+                return;
+            }
+            if (building.transform != _destination)
+            {
+                _destination = GetCloser(_destination, building.transform);
+            }
+        }
+    }
+
+    private Transform GetCloser(Transform a, Transform b)
+    {
+        var position = transform.position;
+        return Vector3.Distance(position, a.position) < Vector3.Distance(position, b.position) ? a : b;
     }
 }
