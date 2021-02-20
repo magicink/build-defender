@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BuildingData))]
+[RequireComponent(typeof(BuildingDataController))]
 public class ResourceGenerator : MonoBehaviour
 {
     public delegate void OnResourceGeneration(ResourceType resourceType, ResourceGenerator generator);
@@ -9,7 +9,7 @@ public class ResourceGenerator : MonoBehaviour
     
     [SerializeField] private float timeToLive;
     [SerializeField] private float maxTimeToLive = 1.0f;
-    [SerializeField] private BuildingData buildingData;
+    [SerializeField] private BuildingDataController buildingDataController;
 
     private BuildingType _buildingType;
     private ResourceType _resourceType;
@@ -18,10 +18,10 @@ public class ResourceGenerator : MonoBehaviour
 
     private void Awake()
     {
-        buildingData = GetComponent<BuildingData>();
-        if (buildingData)
+        buildingDataController = GetComponent<BuildingDataController>();
+        if (buildingDataController)
         {
-            _buildingType = buildingData.BuildingType;
+            _buildingType = buildingDataController.BuildingType;
             _resourceType = _buildingType.resourceGeneratorData.ResourceType;
             maxTimeToLive = _buildingType.resourceGeneratorData.MaxTimeToLive;
         }

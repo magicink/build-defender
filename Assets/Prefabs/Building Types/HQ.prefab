@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToLive: 0
   maxTimeToLive: 1
-  buildingData: {fileID: 0}
+  buildingDataController: {fileID: 5485177326350749476}
 --- !u!114 &5485177326350749476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,6 +329,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4690311192007531652, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
       propertyPath: buildingData
+      value: 
+      objectReference: {fileID: 5485177326350749476}
+    - target: {fileID: 4690311192007531652, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
+      propertyPath: buildingDataController
       value: 
       objectReference: {fileID: 5485177326350749476}
     - target: {fileID: 6362255024596548931, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}

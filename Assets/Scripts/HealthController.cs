@@ -7,7 +7,7 @@ public class HealthController : MonoBehaviour, IHealthController
 
     public delegate void OnHeadquartersDestroyed();
 
-    public OnHeadquartersDestroyed handleHeadquartersDestroyed;
+    public OnHeadquartersDestroyed HandleHeadquartersDestroyed;
 
     public int CurrentHitPoints
     {
@@ -23,25 +23,17 @@ public class HealthController : MonoBehaviour, IHealthController
 
     private void Awake()
     {
-        var buildingData = GetComponent<BuildingData>();
-        if (buildingData)
+        var healthProvider = GetComponent<IHealthDataProvider>();
+        if (healthProvider != null)
         {
-            var buildingType = buildingData.BuildingType;
-            CurrentHitPoints = MaxHitPoints = buildingType.startingHitPoints;
-            return;
-        }
-
-        var enemyData = GetComponent<EnemyDataController>();
-        if (enemyData)
-        {
-            CurrentHitPoints = MaxHitPoints = enemyData.Data.hitPoints;
+            CurrentHitPoints = MaxHitPoints = healthProvider.HealthData.HitPoints;
         }
     }
 
     private void Update()
     {
         if (currentHitPoints > 0) return;
-        handleHeadquartersDestroyed?.Invoke();
+        HandleHeadquartersDestroyed?.Invoke();
         Destroy(gameObject);
     }
 }

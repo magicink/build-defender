@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToLive: 0
   maxTimeToLive: 1
-  buildingData: {fileID: 0}
+  buildingDataController: {fileID: -6530648801333440839}
 --- !u!114 &-6530648801333440839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: {fileID: 11400000, guid: f4e09128a5e89f44ebb56a6853901a18, type: 2}
+  isHeadquarters: 0
 --- !u!114 &-2286649801862891648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dce23a74735016478dcba048cf02d0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHitPoints: 0
+  maxHitPoints: 0
 --- !u!61 &8053332295826940128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -330,6 +333,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4690311192007531652, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
       propertyPath: buildingData
+      value: 
+      objectReference: {fileID: -6530648801333440839}
+    - target: {fileID: 4690311192007531652, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
+      propertyPath: buildingDataController
       value: 
       objectReference: {fileID: -6530648801333440839}
     - target: {fileID: 6362255024596548931, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}

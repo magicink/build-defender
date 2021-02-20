@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Build Defender/Enemy")]
-public class EnemyData : ScriptableObject
+public class EnemyData : ScriptableObject, IHealthData
 {
     public string displayName;
     public int hitPoints;
@@ -10,4 +10,6 @@ public class EnemyData : ScriptableObject
     public Color spriteColor;
     public float speed;
     public float scanRadius;
+
+    public int HitPoints => hitPoints;
 }

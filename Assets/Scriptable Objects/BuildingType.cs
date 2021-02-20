@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Build Defender/Building")]
-public class BuildingType : ScriptableObject
+public class BuildingType : ScriptableObject, IHealthData
 {
     public string displayName;
     public GameObject prefab;
@@ -12,4 +12,5 @@ public class BuildingType : ScriptableObject
     public int maxNodes = 5;
     public ConstructionCosts constructionCosts;
     public int startingHitPoints = 100;
+    public int HitPoints => startingHitPoints;
 }

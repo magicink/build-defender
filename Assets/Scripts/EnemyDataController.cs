@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDataController : MonoBehaviour
+public class EnemyDataController : MonoBehaviour, IHealthDataProvider
 {
     [SerializeField] private EnemyData data;
 
@@ -19,4 +17,6 @@ public class EnemyDataController : MonoBehaviour
     {
         
     }
+
+    public IHealthData HealthData => data;
 }

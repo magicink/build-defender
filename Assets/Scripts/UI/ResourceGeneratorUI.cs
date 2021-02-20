@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ResourceGeneratorUI : MonoBehaviour
 {
-    [SerializeField] private BuildingData buildingData;
+    [SerializeField] private BuildingDataController buildingDataController;
     [SerializeField] private Image resourceIcon;
     [SerializeField] private TextMeshProUGUI resourceLabel;
     [SerializeField] private Image healthBar;
@@ -15,9 +15,9 @@ public class ResourceGeneratorUI : MonoBehaviour
 
     private void Start()
     {
-        if (!buildingData || !resourceIcon) return;
-        _resourceGenerator = buildingData.GetComponent<ResourceGenerator>();
-        resourceIcon.sprite = buildingData.BuildingType.resourceGeneratorData.ResourceType.icon;
+        if (!buildingDataController || !resourceIcon) return;
+        _resourceGenerator = buildingDataController.GetComponent<ResourceGenerator>();
+        resourceIcon.sprite = buildingDataController.BuildingType.resourceGeneratorData.ResourceType.icon;
         if (!_resourceGenerator) return;
         _healthController = _resourceGenerator.GetComponent<HealthController>();
     }
@@ -26,7 +26,7 @@ public class ResourceGeneratorUI : MonoBehaviour
     {
         if (_resourceGenerator && resourceLabel)
         {
-            resourceLabel.text = $"{_resourceGenerator.TotalNodes} / {buildingData.BuildingType.maxNodes}";
+            resourceLabel.text = $"{_resourceGenerator.TotalNodes} / {buildingDataController.BuildingType.maxNodes}";
         }
 
         if (!_healthController || !healthBar) return;

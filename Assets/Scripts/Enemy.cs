@@ -63,7 +63,7 @@ public class Enemy : MonoBehaviour
         var collisions = Physics2D.OverlapCircleAll(transform.position, _enemyDataController.Data.scanRadius);
         foreach (var collision in collisions)
         {
-            var building = collision.gameObject.GetComponent<BuildingData>();
+            var building = collision.gameObject.GetComponent<BuildingDataController>();
             if (!building) continue;
             if (!_destination)
             {

@@ -67,12 +67,12 @@ public class BuildingManager : MonoBehaviour
         if (collisions.Length > 1) return false;
         var possibleConflicts =
             Physics2D.OverlapCircleAll(position + (Vector3) collider2d.offset, buildingType.range);
-        if (possibleConflicts.Select(collision => collision.GetComponent<BuildingData>()).Where(buildingData => buildingData).Any(buildingData => buildingData.BuildingType == buildingType))
+        if (possibleConflicts.Select(collision => collision.GetComponent<BuildingDataController>()).Where(buildingData => buildingData).Any(buildingData => buildingData.BuildingType == buildingType))
         {
             return false;
         }
         var nearbyBuildings = Physics2D.OverlapCircleAll(position + (Vector3) collider2d.offset, buildingType.range * 1.5f);
-        return nearbyBuildings.Select(nearbyBuilding => nearbyBuilding.GetComponent<BuildingData>()).Any(buildingData => buildingData);
+        return nearbyBuildings.Select(nearbyBuilding => nearbyBuilding.GetComponent<BuildingDataController>()).Any(buildingData => buildingData);
     }
 
     public static bool CanAfford(BuildingType buildingType)
@@ -89,13 +89,13 @@ public class BuildingManager : MonoBehaviour
         if (headquartersHealthController)
         {
             Headquarters = headquartersHealthController;
-            Headquarters.handleHeadquartersDestroyed += HandleHeadquartersDestroyed;
+            Headquarters.HandleHeadquartersDestroyed += HandleHeadquartersDestroyed;
         }
     }
 
     private void HandleHeadquartersDestroyed()
     {
-        Headquarters.handleHeadquartersDestroyed -= HandleHeadquartersDestroyed;
+        Headquarters.HandleHeadquartersDestroyed -= HandleHeadquartersDestroyed;
         Headquarters = null;
     }
 }

@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class BuildingData : MonoBehaviour
+public class BuildingDataController : MonoBehaviour, IHealthDataProvider
 {
     [SerializeField] private BuildingType buildingType;
     [SerializeField] private bool isHeadquarters;
 
     public BuildingType BuildingType => buildingType;
+    public IHealthData HealthData => buildingType;
 
     private void Start()
     {
