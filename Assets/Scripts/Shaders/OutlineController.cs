@@ -36,7 +36,7 @@ namespace Shaders
             BuildingManager.Instance.HandleCurrentBuildingChanged += HandleBuildingHasChanged;
         }
 
-        private void HandleBuildingHasChanged(BuildingType buildingType)
+        private void HandleBuildingHasChanged(BuildingData buildingType)
         {
             Outlined = false;
         }

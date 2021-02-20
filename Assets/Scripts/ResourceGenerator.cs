@@ -11,7 +11,7 @@ public class ResourceGenerator : MonoBehaviour
     [SerializeField] private float maxTimeToLive = 1.0f;
     [SerializeField] private BuildingDataController buildingDataController;
 
-    private BuildingType _buildingType;
+    private BuildingData _buildingType;
     private ResourceType _resourceType;
 
     public int TotalNodes { get; private set; }

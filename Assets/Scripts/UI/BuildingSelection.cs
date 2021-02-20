@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class BuildingSelection : MonoBehaviour
 {
     [SerializeField] private BuildingUIData buildingUIData;
-    [SerializeField] private BuildingType buildingType;
+    [SerializeField] private BuildingData buildingType;
     [SerializeField] private Image icon;
     [SerializeField] private Image background;
 
     private Button _button;
-    private BuildingType _selectedBuildingType;
+    private BuildingData _selectedBuildingType;
     public Image Icon { get; }
 
-    public BuildingType BuildingType
+    public BuildingData BuildingType
     {
         set
         {
@@ -71,7 +71,7 @@ public class BuildingSelection : MonoBehaviour
         BuildingManager.Instance.CurrentBuilding = buildingType;
     }
 
-    private void HandleCurrentBuildingChanged([CanBeNull] BuildingType currentBuildingType)
+    private void HandleCurrentBuildingChanged([CanBeNull] BuildingData currentBuildingType)
     {
         if (!_button) return;
         _selectedBuildingType = currentBuildingType;

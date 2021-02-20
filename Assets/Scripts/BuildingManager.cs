@@ -7,9 +7,9 @@ public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager Instance;
 
-    private BuildingType _currentBuilding;
+    private BuildingData _currentBuilding;
 
-    public BuildingType CurrentBuilding
+    public BuildingData CurrentBuilding
     {
         set
         {
@@ -21,9 +21,9 @@ public class BuildingManager : MonoBehaviour
 
     public HealthController Headquarters { get; private set; }
 
-    public delegate void OnCurrentBuildingChanged([CanBeNull] BuildingType buildingType);
+    public delegate void OnCurrentBuildingChanged([CanBeNull] BuildingData buildingType);
 
-    public delegate void OnBuildingConstructed(BuildingType buildingType);
+    public delegate void OnBuildingConstructed(BuildingData buildingType);
 
     public OnCurrentBuildingChanged HandleCurrentBuildingChanged;
     public OnBuildingConstructed HandleBuildingConstructed;
@@ -57,7 +57,7 @@ public class BuildingManager : MonoBehaviour
         }
     }
 
-    private static bool CanSpawn(BuildingType buildingType, Vector3 position)
+    private static bool CanSpawn(BuildingData buildingType, Vector3 position)
     {
         if (!Instance.Headquarters) return false;
         var collider2d = buildingType.prefab.GetComponent<BoxCollider2D>();
@@ -75,7 +75,7 @@ public class BuildingManager : MonoBehaviour
         return nearbyBuildings.Select(nearbyBuilding => nearbyBuilding.GetComponent<BuildingDataController>()).Any(buildingData => buildingData);
     }
 
-    public static bool CanAfford(BuildingType buildingType)
+    public static bool CanAfford(BuildingData buildingType)
     {
         if (!Instance.Headquarters) return false;
         var costs = buildingType.constructionCosts;

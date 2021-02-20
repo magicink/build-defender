@@ -40,7 +40,7 @@ public class ResourceManager : MonoBehaviour
         BuildingManager.Instance.HandleBuildingConstructed += UpdateAvailableResources;
     }
 
-    private void UpdateAvailableResources(BuildingType buildingType)
+    private void UpdateAvailableResources(BuildingData buildingType)
     {
         var costs = buildingType.constructionCosts.data;
         foreach (var cost in costs)

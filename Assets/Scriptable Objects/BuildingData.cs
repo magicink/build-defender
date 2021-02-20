@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Build Defender/Building")]
-public class BuildingType : ScriptableObject, IHealthData
+public class BuildingData : ScriptableObject, IHealthData
 {
     public string displayName;
     public GameObject prefab;

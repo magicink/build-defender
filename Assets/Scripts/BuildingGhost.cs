@@ -7,13 +7,13 @@ using UnityEngine.EventSystems;
 public class BuildingGhost : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer ghost;
-    [SerializeField] private BuildingType buildingType;
+    [SerializeField] private BuildingData buildingType;
     [SerializeField] private Canvas ui;
     [SerializeField] private TextMeshProUGUI label;
 
     private CircleCollider2D _circleCollider2D;
 
-    public BuildingType BuildingType => buildingType;
+    public BuildingData BuildingType => buildingType;
 
     private void Awake()
     {
@@ -31,7 +31,7 @@ public class BuildingGhost : MonoBehaviour
         BuildingManager.Instance.HandleCurrentBuildingChanged += HandleCurrentBuildingChanged;
     }
 
-    private void HandleCurrentBuildingChanged([CanBeNull] BuildingType nextBuildingType)
+    private void HandleCurrentBuildingChanged([CanBeNull] BuildingData nextBuildingType)
     {
         if (!ghost) return;
         if (nextBuildingType)
