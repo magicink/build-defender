@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ResourceNode : MonoBehaviour
 {
-    [SerializeField] private ResourceType _resourceType;
+    [SerializeField] private ResourceData _resourceType;
 
-    public ResourceType ResourceType => _resourceType;
+    public ResourceData ResourceType => _resourceType;
 }

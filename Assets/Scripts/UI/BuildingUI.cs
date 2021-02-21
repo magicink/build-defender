@@ -7,7 +7,7 @@ public class BuildingUI : MonoBehaviour
     private void Awake()
     {
         if (!selectionPrefab) return;
-        var source = Resources.Load<BuildingTypes>(nameof(BuildingTypes));
+        var source = Resources.Load<BuildingCollection>(nameof(BuildingCollection));
         if (!source) return;
         if (source.data.Count <= 0) return;
         var offset = 60;

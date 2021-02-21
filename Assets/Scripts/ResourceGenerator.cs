@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(BuildingDataController))]
 public class ResourceGenerator : MonoBehaviour
 {
-    public delegate void OnResourceGeneration(ResourceType resourceType, ResourceGenerator generator);
+    public delegate void OnResourceGeneration(ResourceData resourceType, ResourceGenerator generator);
 
     public OnResourceGeneration HandleResourceGeneration;
     
@@ -12,7 +12,7 @@ public class ResourceGenerator : MonoBehaviour
     [SerializeField] private BuildingDataController buildingDataController;
 
     private BuildingData _buildingType;
-    private ResourceType _resourceType;
+    private ResourceData _resourceType;
 
     public int TotalNodes { get; private set; }
 

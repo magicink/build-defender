@@ -3,6 +3,6 @@
 [CreateAssetMenu(menuName = "Build Defender/Construction Cost")]
 public class ConstructionCost : ScriptableObject
 {
-    public ResourceType resourceType;
+    public ResourceData resourceType;
     public int amount;
 }

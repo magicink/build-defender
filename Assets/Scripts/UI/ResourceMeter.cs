@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ResourceMeter : MonoBehaviour
 {
-    [SerializeField] private ResourceType resourceType;
+    [SerializeField] private ResourceData resourceType;
     [SerializeField] private Image icon;
     [SerializeField] private int count;
     [SerializeField] private TextMeshProUGUI displayText;
@@ -15,7 +15,7 @@ public class ResourceMeter : MonoBehaviour
 
     private OnResourceTypeAdded _handleResourceTypeAdded;
 
-    public ResourceType ResourceType
+    public ResourceData ResourceType
     {
         set
         {
@@ -46,7 +46,7 @@ public class ResourceMeter : MonoBehaviour
         if (icon) icon.sprite = resourceType.icon;
     }
 
-    private void HandleResourcesUpdate(IReadOnlyDictionary<ResourceType, int> types)
+    private void HandleResourcesUpdate(IReadOnlyDictionary<ResourceData, int> types)
     {
         if (resourceType) count = types[resourceType];
     }

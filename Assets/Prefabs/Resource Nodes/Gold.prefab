@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2104247918516038939}
   - component: {fileID: -6474487523055448762}
   - component: {fileID: 3455553199893440855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3101773738070619431}
   - component: {fileID: 5779199235046930347}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GoldNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -6,5 +6,5 @@ using UnityEngine;
 public class ResourceGeneratorData
 {
     public float MaxTimeToLive;
-    public ResourceType ResourceType;
+    public ResourceData ResourceType;
 }

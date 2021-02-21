@@ -8,11 +8,14 @@ public class Enemy : MonoBehaviour
     private Transform _destination;
     private Rigidbody2D _rigidbody2D;
     private float currentSpeed;
+    private float _lastScanTime;
+    private float _scanFrequency;
 
     private void Awake()
     {
         _enemyDataController = GetComponent<EnemyDataController>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _scanFrequency = Random.Range(0.25f, 2.0f);
     }
 
     private void Start()
@@ -47,7 +50,11 @@ public class Enemy : MonoBehaviour
             var dir = (_destination.position - transform.position).normalized;
             _rigidbody2D.velocity = dir * currentSpeed;
         }
-        Scan();
+
+        _lastScanTime -= Time.deltaTime;
+        if (!(_lastScanTime <= 0f)) return;
+        _lastScanTime = _scanFrequency;
+        ScanTargets();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -58,7 +65,7 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void Scan()
+    private void ScanTargets()
     {
         var collisions = Physics2D.OverlapCircleAll(transform.position, _enemyDataController.Data.scanRadius);
         foreach (var collision in collisions)

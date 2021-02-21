@@ -7,7 +7,7 @@ public class ResourceUI : MonoBehaviour
     private void Awake()
     {
         if (!meterPrefab) return;
-        var source = Resources.Load<ResourceTypes>(nameof(ResourceTypes));
+        var source = Resources.Load<ResourceCollection>(nameof(ResourceCollection));
         if (!source) return;
         if (source.data.Count <= 0) return;
         var offset = 0;

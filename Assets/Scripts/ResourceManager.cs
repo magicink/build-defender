@@ -6,21 +6,21 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance { get; private set; }
 
-    public delegate void OnAvailableResourcesChanged(Dictionary<ResourceType, int> resourceTypes);
+    public delegate void OnAvailableResourcesChanged(Dictionary<ResourceData, int> resourceTypes);
 
     public OnAvailableResourcesChanged HandleAvailableChange;
 
-    private readonly Dictionary<ResourceType, int> _available = new Dictionary<ResourceType, int>();
-    private readonly Dictionary<ResourceType, int> _accumulated = new Dictionary<ResourceType, int>();
-    private ResourceTypes _source;
+    private readonly Dictionary<ResourceData, int> _available = new Dictionary<ResourceData, int>();
+    private readonly Dictionary<ResourceData, int> _accumulated = new Dictionary<ResourceData, int>();
+    private ResourceCollection _source;
     private float _elapsed;
 
-    public Dictionary<ResourceType, int> Available => _available;
+    public Dictionary<ResourceData, int> Available => _available;
 
     private void Awake()
     {
         Instance = this;
-        _source = Resources.Load<ResourceTypes>(nameof(ResourceTypes));
+        _source = Resources.Load<ResourceCollection>(nameof(ResourceCollection));
         if (!_source) return;
         if (_source.data.Count <= 0) return;
         foreach (var resourceType in _source.data)
@@ -61,7 +61,7 @@ public class ResourceManager : MonoBehaviour
         generator.HandleResourceGeneration -= AccumulateResource;
     }
 
-    private void AccumulateResource(ResourceType resourceType, ResourceGenerator generator)
+    private void AccumulateResource(ResourceData resourceType, ResourceGenerator generator)
     {
         _accumulated[resourceType] = Mathf.Clamp(_accumulated[resourceType] + generator.TotalNodes, 0, 999);
     }
