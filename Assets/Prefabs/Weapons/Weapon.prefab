@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2612935684479610234}
   - component: {fileID: 8998705059372601209}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
-  projectile: {fileID: 0}
+  scanner: {fileID: 0}

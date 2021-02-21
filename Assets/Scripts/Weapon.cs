@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -27,7 +26,7 @@ public class Weapon : MonoBehaviour
         if (_cooldown <= 0)
         {
             var projectile = Instantiate(data.Projectile, transform.position, Quaternion.identity);
-            projectile.TargetLayerMask = scanner.LayerMask;
+            projectile.TargetLayer = scanner.LayerMask;
             projectile.Destination = target.gameObject.transform.position;
             _cooldown = data.fireRate;
         }
