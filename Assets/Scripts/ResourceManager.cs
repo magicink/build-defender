@@ -25,7 +25,7 @@ public class ResourceManager : MonoBehaviour
         if (_source.data.Count <= 0) return;
         foreach (var resourceType in _source.data)
         {
-            _available.Add(resourceType, 0);
+            _available.Add(resourceType, 50);
             _accumulated.Add(resourceType, 0);
         }
     }
