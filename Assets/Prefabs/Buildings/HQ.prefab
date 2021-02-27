@@ -296,6 +296,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 160415051464678426, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.2000122
+      objectReference: {fileID: 0}
     - target: {fileID: 1515145458449881134, guid: 0b93f9c48a815c643b227d83e745af2b, type: 3}
       propertyPath: m_Name
       value: Building Stats

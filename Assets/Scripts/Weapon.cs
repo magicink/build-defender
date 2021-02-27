@@ -31,4 +31,9 @@ public class Weapon : MonoBehaviour
             _cooldown = data.fireRate;
         }
     }
+
+    private void OnDisable()
+    {
+        scanner.HandleTargetLocated -= Attack;
+    }
 }

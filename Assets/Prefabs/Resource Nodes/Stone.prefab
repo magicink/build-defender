@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1030547694906998586}
   - component: {fileID: 6183126050837800874}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Stone_rock_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6370381260177719171}
   - component: {fileID: 522256076062833694}
   - component: {fileID: 576499990333191027}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Stone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: 0.27}
+  m_Offset: {x: 0.09000003, y: 0.03872931}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -164,7 +164,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.96, y: 1.53}
+  m_Size: {x: 1.96, y: 1.0674584}
   m_EdgeRadius: 0
 --- !u!114 &-3184864972011954492
 MonoBehaviour:

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2104247918516038939}
   - component: {fileID: -6474487523055448762}
   - component: {fileID: 3455553199893440855}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Gold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: 0.24}
+  m_Offset: {x: -0.07435602, y: 0.24000007}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -82,7 +82,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.96, y: 1.55}
+  m_Size: {x: 2.861308, y: 0.78653896}
   m_EdgeRadius: 0
 --- !u!114 &4033762567833407636
 MonoBehaviour:
@@ -151,7 +151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3101773738070619431}
   - component: {fileID: 5779199235046930347}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: GoldNode
   m_TagString: Untagged
   m_Icon: {fileID: 0}

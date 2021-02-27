@@ -4,6 +4,7 @@ public class EnemyScanner : TargetScanner
 {
     private void Update()
     {
+        if (!BuildingManager.Instance.Headquarters) return;
         LastScanTime -= Time.deltaTime;
         if (LastScanTime <= 0)
         {

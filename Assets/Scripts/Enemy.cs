@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(EnemyDataController))]
 public class Enemy : MonoBehaviour
@@ -27,8 +29,8 @@ public class Enemy : MonoBehaviour
                 spriteRenderer.sprite = _enemyDataController.Data.sprite;
                 spriteRenderer.color = _enemyDataController.Data.spriteColor;
             }
-
-            currentSpeed = _enemyDataController.Data.speed;
+            
+            currentSpeed = Random.Range(_enemyDataController.Data.speed / 4, _enemyDataController.Data.speed * 1.5f);
         }
     }
 
@@ -59,6 +61,8 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        var enemy = other.gameObject.GetComponent<Enemy>();
+        if (enemy) return;
         var building = other.gameObject.GetComponent<HealthController>();
         if (!building) return;
         building.CurrentHitPoints -= _enemyDataController.Data.damage;

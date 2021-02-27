@@ -1,4 +1,5 @@
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class Utils
 {
@@ -18,5 +19,10 @@ public static class Utils
         var radians = Mathf.Atan2(vector.y, vector.x);
         var degrees = radians * Mathf.Rad2Deg;
         return degrees;
+    }
+
+    public static Vector3 GetRandomDirection()
+    {
+        return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
 }
