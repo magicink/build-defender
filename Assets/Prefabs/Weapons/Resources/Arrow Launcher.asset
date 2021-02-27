@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Arrow Launcher
   m_EditorClassIdentifier: 
   Projectile: {fileID: 3558394901926584390, guid: 119a3ac8f8a40404c85904bf5fdc17d2, type: 3}
-  fireRate: 0.25
+  fireRate: 0.1

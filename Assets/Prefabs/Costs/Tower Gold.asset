@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8059f2d63014de2879ad44b6ea537c9, type: 3}
   m_Name: Tower Gold
   m_EditorClassIdentifier: 
-  resourceType: {fileID: 0}
-  amount: 0
+  resourceType: {fileID: 11400000, guid: 5e58d1ad2137e8a419e9cde809eb2769, type: 2}
+  amount: 25
