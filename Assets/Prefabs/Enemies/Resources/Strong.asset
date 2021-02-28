@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Strong
   m_EditorClassIdentifier: 
   displayName: Strong
-  hitPoints: 17
-  damage: 35
+  hitPoints: 15
+  damage: 25
   sprite: {fileID: 21300000, guid: ffd4d309f7f04fd46950b63405ec104b, type: 3}
   spriteColor: {r: 0.9019475, g: 0, b: 1, a: 1}
   speed: 1.5

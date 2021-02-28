@@ -72,7 +72,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
-  range: 25
+  range: 50
 --- !u!1001 &7784819500764426306
 PrefabInstance:
   m_ObjectHideFlags: 0

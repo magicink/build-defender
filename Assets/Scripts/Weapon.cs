@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     private void Start()
     {
         if (!scanner || !data) return;
-        scanner.Range = data.Projectile.Data.range;
+        // scanner.Range = data.Projectile.Data.range;
         scanner.HandleTargetLocated += Attack;
     }
 

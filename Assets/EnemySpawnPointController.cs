@@ -12,6 +12,8 @@ public class EnemySpawnPointController : MonoBehaviour
     public float timer;
     public float cooldown;
     public int booster;
+    public float minCooldown = 30f;
+    public float maxCooldown = 120f;
 
     private static void CreateEnemy(Enemy prefab, Vector3 position)
     {
@@ -29,9 +31,11 @@ public class EnemySpawnPointController : MonoBehaviour
         if (!BuildingManager.Instance.Headquarters) return;
         if (spawnCount == 0 && cooldown <= 0)
         {
-            cooldown = Random.Range(30f, 60f);
+            cooldown = Random.Range(minCooldown, maxCooldown);
             spawnCount = Random.Range(10, 15) + booster;
             booster += 5;
+            minCooldown = Mathf.Clamp(minCooldown - 1f, 10f, 30f);
+            maxCooldown = Mathf.Clamp(maxCooldown - 1f, 30f, 120f);
             return;
         }
 
@@ -45,7 +49,7 @@ public class EnemySpawnPointController : MonoBehaviour
             var prefab = prefabs[Random.Range(0, 100) % 2];
             CreateEnemy(prefab, transform.position + Utils.GetRandomDirection() * Random.Range(1, 10));
             timer = spawnDelay;
-            spawnCount = spawnCount - 1;
+            spawnCount -= 1;
         }
         else
         {
