@@ -46,4 +46,8 @@ MonoBehaviour:
   prefabs:
   - {fileID: 1992632432665000836, guid: f12c3cb0d3a06244295c1d03a2990dfe, type: 3}
   - {fileID: 2178850629065212267, guid: 44fe6f1591ccc0a46b50e9e8be499e8d, type: 3}
-  spawnCount: 20
+  spawnCount: 5
+  spawnDelay: 0.15
+  timer: 0
+  cooldown: 0
+  booster: 0

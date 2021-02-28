@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Basic
   m_EditorClassIdentifier: 
   displayName: Basic
-  hitPoints: 7
+  hitPoints: 3
   damage: 25
   sprite: {fileID: 21300000, guid: ffd4d309f7f04fd46950b63405ec104b, type: 3}
   spriteColor: {r: 1, g: 0.58280706, b: 0, a: 1}
-  speed: 4
+  speed: 6
   scanRadius: 20

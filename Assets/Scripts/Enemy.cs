@@ -36,6 +36,10 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        if (!BuildingManager.Instance.Headquarters)
+        {
+            Destroy(gameObject);
+        }
         if (!_destination)
         {
             if (BuildingManager.Instance.Headquarters)
