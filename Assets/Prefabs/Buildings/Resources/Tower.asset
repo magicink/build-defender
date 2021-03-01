@@ -19,7 +19,7 @@ MonoBehaviour:
   resourceGeneratorData:
     MaxTimeToLive: 0
     ResourceType: {fileID: 0}
-  range: 10
+  range: 2
   maxNodes: 0
   constructionCosts:
     data:

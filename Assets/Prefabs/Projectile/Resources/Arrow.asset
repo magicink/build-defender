@@ -16,4 +16,4 @@ MonoBehaviour:
   damage: 1
   speed: 30
   range: 100
-  timeToLive: 3
+  timeToLive: 2
