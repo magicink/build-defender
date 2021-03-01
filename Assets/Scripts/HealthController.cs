@@ -14,11 +14,7 @@ public class HealthController : MonoBehaviour, IHealthController
         get => currentHitPoints;
         set
         {
-            if (value <currentHitPoints)
-            {
-                var building = gameObject.GetComponent<BuildingDataController>();
-                if (building) CameraShake.Instance.StartShake(5.0f);
-            }
+            OnHealthChange(value, currentHitPoints);
             currentHitPoints = value;
         }
     }
@@ -27,6 +23,10 @@ public class HealthController : MonoBehaviour, IHealthController
     {
         get => maxHitPoints;
         set => maxHitPoints = value;
+    }
+
+    public virtual void OnHealthChange(int next, int current)
+    {
     }
 
     private void Awake()
@@ -41,15 +41,7 @@ public class HealthController : MonoBehaviour, IHealthController
     private void Update()
     {
         if (currentHitPoints > 0) return;
-        var building = gameObject.GetComponent<BuildingDataController>();
-        if (building) CameraShake.Instance.StartShake(15.0f);
         HandleHeadquartersDestroyed?.Invoke();
         Destroy(gameObject);
     }
-}
-
-public interface IHealthController
-{
-    int CurrentHitPoints { get; set; }
-    int MaxHitPoints { get; set; }
 }

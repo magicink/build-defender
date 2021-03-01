@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -9,6 +10,8 @@ public class Projectile : MonoBehaviour
     private float lifespan;
     private bool destinationIsSet;
     private bool angleIsSet;
+    private Vector3 startPosition;
+    private Vector3 direction;
 
     public LayerMask TargetLayer { get; set; }
 
@@ -20,6 +23,8 @@ public class Projectile : MonoBehaviour
         set
         {
             if (destinationIsSet) return;
+            direction = (value - transform.position).normalized;
+            transform.eulerAngles = new Vector3(0, 0, Utils.GetAngle(direction));
             _destination = value;
             destinationIsSet = true;
         }
@@ -33,6 +38,11 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        startPosition = transform.position;
+    }
+
 
     // Update is called once per frame
     private void Update()
@@ -40,16 +50,15 @@ public class Projectile : MonoBehaviour
         if (!destinationIsSet) return;
         if (!angleIsSet)
         {
-            var direction = (_destination - transform.position).normalized;
             transform.eulerAngles = new Vector3(0, 0, Utils.GetAngle(direction));
             angleIsSet = true;
         }
 
         var forceDestroy = false;
         var position = transform.position;
-        if (Vector2.Distance(_destination, position) > 0)
+        if (Vector2.Distance(startPosition, position) < data.range)
         {
-            transform.position = Vector3.MoveTowards(position, _destination, data.speed * Time.deltaTime);
+            transform.position += direction * (data.speed * Time.deltaTime);
         }
         else
         {

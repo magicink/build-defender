@@ -142,8 +142,8 @@ GameObject:
   - component: {fileID: 1370116547932202021}
   - component: {fileID: 7811379694727085956}
   - component: {fileID: -6530648801333440839}
-  - component: {fileID: -2286649801862891648}
   - component: {fileID: 8053332295826940128}
+  - component: {fileID: -1916112931309098062}
   m_Layer: 0
   m_Name: Lumber Mill
   m_TagString: Untagged
@@ -196,20 +196,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingType: {fileID: 11400000, guid: f4e09128a5e89f44ebb56a6853901a18, type: 2}
   isHeadquarters: 0
---- !u!114 &-2286649801862891648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6560759913814510155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dce23a74735016478dcba048cf02d0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHitPoints: 0
-  maxHitPoints: 0
 --- !u!61 &8053332295826940128
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -236,6 +222,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9599783, y: 2.058738}
   m_EdgeRadius: 0
+--- !u!114 &-1916112931309098062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6560759913814510155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064d6f09672f4ccfb3830f98170aa0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHitPoints: 0
+  maxHitPoints: 0
 --- !u!1001 &7231958455360364075
 PrefabInstance:
   m_ObjectHideFlags: 0

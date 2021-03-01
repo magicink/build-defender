@@ -39,6 +39,7 @@ public class CameraShake : MonoBehaviour
         }
         else
         {
+            virtualCamera.transform.rotation = Quaternion.identity;
             perlin.m_AmplitudeGain = 0;
             _intensity = 0;
         }
