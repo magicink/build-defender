@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Tower Wood
   m_EditorClassIdentifier: 
   resourceType: {fileID: 11400000, guid: cc57ddcb45e22e44da2ed97d8a73fae3, type: 2}
-  amount: 15
+  amount: 50

@@ -19,10 +19,10 @@ MonoBehaviour:
   resourceGeneratorData:
     MaxTimeToLive: 0
     ResourceType: {fileID: 0}
-  range: 2
+  range: 5
   maxNodes: 0
   constructionCosts:
     data:
     - {fileID: 11400000, guid: ae63947524d0c6e4484e43f836cb8911, type: 2}
     - {fileID: 11400000, guid: 7d88c8464e02be44194c658c297b7746, type: 2}
-  startingHitPoints: 50
+  startingHitPoints: 75
