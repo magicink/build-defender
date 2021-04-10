@@ -4,6 +4,5 @@
     {
         if (next >= current) return;
         var intensity = next <= 0 ? 5f : 2f;
-        CameraShake.Instance.StartShake(intensity);
     }
 }
