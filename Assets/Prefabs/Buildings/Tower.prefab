@@ -54,7 +54,7 @@ MonoBehaviour:
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
+  m_ShadowIntensity: 0.5
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_HasRenderer: 1
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
-  m_SelfShadows: 1
+  m_SelfShadows: 0
   m_ApplyToSortingLayers: ffb3ade30000000029a1389b
   m_ShapePath:
   - {x: -1.8803483, y: -0.73213863, z: 0}
@@ -123,7 +123,7 @@ MonoBehaviour:
   - {x: -1.93368, y: 5.2545834, z: 0}
   m_ShapePathHash: -1646346065
   m_Mesh: {fileID: 0}
-  m_InstanceId: 107542
+  m_InstanceId: 21536
 --- !u!1 &9058922792247115781
 GameObject:
   m_ObjectHideFlags: 0
